@@ -2,8 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/json_api_responders.svg)](https://badge.fury.io/rb/json_api_responders)
 [![Build Status](https://semaphoreci.com/api/v1/infinum/json_api_responders/branches/master/shields_badge.svg)](https://semaphoreci.com/infinum/json_api_responders)
-[![Code Climate](https://codeclimate.com/github/infinum/json_api_responders/badges/gpa.svg)](https://codeclimate.com/github/infinum/json_api_responders)
-[![Test Coverage](https://codeclimate.com/github/infinum/json_api_responders/badges/coverage.svg)](https://codeclimate.com/github/infinum/json_api_responders/coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f0735e647a41336a7f0a/maintainability)](https://codeclimate.com/github/infinum/json_api_responders/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f0735e647a41336a7f0a/test_coverage)](https://codeclimate.com/github/infinum/json_api_responders/test_coverage)
 
 This gem gives a few convenient methods for working with JSONAPI. It is inspired by the [responders](https://github.com/plataformatec/responders) gem.
 

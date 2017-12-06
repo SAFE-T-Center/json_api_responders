@@ -60,13 +60,15 @@ This method requires HTTP status code and an optional parameter explaining the e
 ## Configuration
 Currently you can only configure which options are required to be passed through the `respond_with` method. These required options are categorized by the controller's actions. Bellow you can find an example:
 
+    # config/initializers/json_api_responders.rb
     JsonApiResponders.configure do |config|
         config.required_options = {
           index: [:each_serializer],
           create: [:serializer]
         }
     end
-    ...
+
+    # app/controllers/v1/users_controller.rb
     def create
       user = User.create(...)
       respond_with user, serializer: UserSerializer
@@ -90,6 +92,7 @@ If `:serializer` was left out of the above `respond_with` method you would see t
       render json: resource, status: 201
     else
       render error: errors, status: 409
+    end
 
 ### update
 
@@ -97,6 +100,7 @@ If `:serializer` was left out of the above `respond_with` method you would see t
       render json: resource, status: 200
     else
       render error: errors, status: 409
+    end
 
 ### destroy
 

@@ -33,8 +33,8 @@ module JsonApiResponders
 
   private
 
-  def record_not_found!
-    respond_with_error(:not_found)
+  def record_not_found!(reason)
+    respond_with_error(:not_found, reason.message)
   end
 
   def parameter_missing!(reason)

@@ -65,9 +65,17 @@ module JsonApiResponders
 
       errors[:errors] << { detail: on_error(:detail) } if on_error(:detail)
 
-      resource.errors.each do |attribute, message|
-        errors[:errors] << error_response(attribute, message)
-      end if resource.respond_to?(:errors)
+      if resource.respond_to?(:errors)
+        if ActiveModel.version >= Gem::Version.new("6.1")
+          resource.errors.each do |error|
+            errors[:errors] << error_response(error.attribute, error.message)
+          end
+        else
+          resource.errors.each do |attribute, message|
+            errors[:errors] << error_response(attribute, message)
+          end
+        end
+      end
 
       errors
     end

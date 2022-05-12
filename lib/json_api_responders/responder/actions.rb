@@ -35,7 +35,7 @@ module JsonApiResponders
 
       def respond_to_destroy_action
         self.status ||= :no_content
-        controller.head(status, render_options)
+        controller.head(status, **render_options)
       end
 
       def render_resource

@@ -37,7 +37,7 @@ module JsonApiResponders
 
     def render_error
       controller.render(
-        render_options.merge(
+        **render_options.merge(
           json: error_render_options,
           status: error_status
         )
@@ -66,7 +66,7 @@ module JsonApiResponders
       errors[:errors] << { detail: on_error(:detail) } if on_error(:detail)
 
       if resource.respond_to?(:errors)
-        if ActiveModel.version >= Gem::Version.new("6.1")
+        if ::ActiveModel.version >= Gem::Version.new("6.1")
           resource.errors.each do |error|
             errors[:errors] << error_response(error.attribute, error.message)
           end

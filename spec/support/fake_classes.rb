@@ -20,31 +20,25 @@ class FakeController
 end
 
 class FakeModel
+  include ActiveModel::Model
+
   def errors
-    Message.new(name: 'cant be blank')
+    @errors ||= super.tap do |errors|
+      errors.add(:name, "can't be blank")
+    end
   end
 end
 
-class I18n
-  def self.t(transaltion)
-    transaltion
+module I18n
+  def self.t(translation, *args)
+    translation
   end
 end
 
-class Message
-  def initialize(hash)
-    @hash = hash
-  end
-
-  def each(&block)
-    @hash.each(&block)
-  end
-
-  def full_message(attribute, message)
-    "#{attribute.to_s.capitalize} #{message}"
-  end
-
-  def any?
-    @hash.any?
+module ActiveModel
+  class Errors
+    def full_message(attribute, message)
+      "#{attribute.to_s.humanize} #{message}"
+    end
   end
 end

@@ -17,7 +17,7 @@ describe JsonApiResponders::Responder do
         errors: [
           {
             title: 'json_api.errors.unprocessable_entity.title',
-            detail: 'Name cant be blank',
+            detail: "Name can't be blank",
             source: { parameter: :name, pointer: 'data/attributes/name' }
           }
         ]

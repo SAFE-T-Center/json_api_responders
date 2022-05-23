@@ -1,3 +1,5 @@
+require 'active_model'
+
 require 'json_api_responders/version'
 require 'json_api_responders/errors'
 require 'json_api_responders/responder'
@@ -24,7 +26,7 @@ module JsonApiResponders
   def respond_with(resource, options = {})
     options = { params: params }.merge(options)
     JsonApiResponders.config.check_required_options(options)
-    Responder.new(self, resource, options).respond!
+    Responder.new(self, resource, **options).respond!
   end
 
   def respond_with_error(status, detail = nil)

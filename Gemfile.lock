@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    json_api_responders (2.6.0)
+    json_api_responders (2.7.0)
       activemodel
 
 GEM

@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Automatically respond to JSON::API requests'
   spec.description = 'Automatically respond to JSON::API requests'
   spec.homepage = 'https://github.com/infinum/json_api_responders'
+  spec.license = 'MIT'
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = 'https://rubygems.org'
